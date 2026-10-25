@@ -48,7 +48,7 @@ export async function payNow(formData: FormData): Promise<void> {
   // local gateway (Flouci/Konnect) or to bill in a Stripe-supported currency.
   const checkoutSession = await stripe.checkout.sessions.create({
     mode: 'payment',
-    payment_method_types: ['card'],
+    allowed_payment_method_types: ['card'],
     line_items: [
       {
         price_data: {
